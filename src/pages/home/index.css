@@ -1,0 +1,139 @@
+.banner {
+  position: relative;
+  background-image: url('../../assets/images/banner.png');
+  height: 493px;
+  color: white;
+  font-family: 'Rounded Mplus 1c';
+}
+
+.banner .app-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.banner .app-container h2 {
+  font-size: 52px;
+  line-height: 62px;
+  color: #ffffff;
+}
+
+.banner .app-container p {
+  font-style: normal;
+  font-weight: 200;
+  font-size: 28px;
+  line-height: 42px;
+  color: #ffffff;
+}
+
+.banner .app-container .btn {
+  width: 20.25rem;
+}
+
+.follow-us {
+  margin-bottom: 23px;
+}
+
+.follow-us p {
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  letter-spacing: 0.23em;
+  color: #3c90bf;
+  margin-bottom: 70px;
+}
+
+.our-looks-item {
+  display: flex;
+  justify-content: center;
+  height: 574px;
+}
+
+.our-looks-item img {
+  margin-right: 85px;
+}
+
+.our-looks-item .preset-card .card-body {
+  padding-top: 0;
+}
+
+.our-looks-item .preset-card .card-body img {
+  transition: none;
+}
+
+.our-looks-item .preset-card {
+  margin-bottom: 28px;
+}
+
+.preset-card:hover .card-body img {
+  margin-top: 0;
+}
+
+.our-looks-item a.btn {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.our-looks .slick-arrow {
+  background: #ffbb00;
+}
+
+.slider-arrow.slick-prev, .slider-arrow.slick-next {
+  width: 49px;
+  height: 49px;
+  background: #ffbb00;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-arrow.slick-prev:hover, .slider-arrow.slick-next:hover {
+  background: #c28e00;
+}
+
+.slider-arrow:before {
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .banner {
+    height: 452px;
+  }
+
+  .banner .app-container h2 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .banner .app-container p {
+    font-size: 22px;
+    line-height: 33px;
+  }
+
+  .banner .app-container .btn {
+    width: 10.68rem;
+  }
+
+  .follow-us {
+    margin-bottom: 15px;
+  }
+
+  .follow-us p {
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 27px;
+  }
+
+  .our-looks-item img {
+    margin-right: 20px;
+  }
+
+  .our-looks-item {
+    height: 481px;
+  }
+}

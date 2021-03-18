@@ -1,0 +1,65 @@
+.copyright {
+  background: #303030;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 9px 0;
+}
+
+.footer-navigation-container {
+  background: #121212;
+}
+
+.footer-navigation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 102px;
+}
+
+.footer-navigation .app-navigation a {
+  color: white;
+}
+
+.ig-link {
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.07em;
+  color: #ffffff;
+}
+
+.ig-link:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.ig-link svg {
+  margin-right: 14px;
+}
+
+footer {
+  margin-top: 110px;
+}
+
+@media (max-width: 576px) {
+  .footer-navigation {
+    height: 60px;
+  }
+
+  .ig-link, .payment-methods {
+    display: none;
+  }
+
+  .footer-navigation {
+    justify-content: row-reverse;
+  }
+
+  footer {
+    margin-top: 60px;
+  }
+}

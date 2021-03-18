@@ -1,0 +1,75 @@
+.promotion {
+  background: #eb554e;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.13em;
+  color: #ffffff;
+  padding: 8px 0;
+}
+
+.promotion > svg {
+  margin: 0 13px;
+}
+
+.header-navigation-container {
+  background-color: white;
+}
+
+.header-navigation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 72px;
+}
+
+.app-navigation a {
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: 0.13em;
+  color: #1c1c23;
+  text-transform: uppercase;
+  margin-right: 37px;
+}
+
+.app-navigation a:last-child {
+  margin-right: 0;
+}
+
+.app-navigation .selected {
+  border-bottom: 1px solid #dc3535;
+  text-decoration: none;
+  color: #1c1c23;
+}
+
+.app-navigation a:hover {
+  border-bottom: 1px solid #dc3535;
+  text-decoration: none;
+  color: #1c1c23;
+}
+
+.search-icon {
+  margin-right: calc(1.75 * 1rem);
+}
+
+.coin-icon {
+  margin-bottom: 1px;
+}
+
+.header-title {
+  position: absolute;
+  opacity: 0;
+}
+
+@media (max-width: 576px) {
+  .header-navigation {
+    height: 60px;
+  }
+
+  .app-navigation a {
+    margin-right: 28px;
+  }
+}

@@ -1,0 +1,130 @@
+.card-background {
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  height: 21.3125rem;
+  border-radius: 10px;
+  bottom: 0;
+  width: 21.875rem;
+}
+
+.card-body {
+  position: relative;
+  z-index: 10;
+  width: 21.875rem;
+}
+
+.card-body img {
+  box-shadow: 0px 16px 25px rgba(24, 28, 30, 0.2);
+  border-radius: 10px;
+  margin-bottom: 37px;
+  transition: margin-top 0.2s;
+  position: relative;
+}
+
+.card-body .title {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #000000;
+}
+
+.card-body .rating {
+  margin-bottom: 17px;
+  text-align: center;
+}
+
+.price-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.card-body .price {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #000000;
+  opacity: 0.7;
+}
+
+.card-body .old-price {
+  color: #dc3535;
+  text-decoration: line-through;
+  margin-right: 8px;
+  opacity: 1;
+  font-weight: normal;
+  margin-left: 16px;
+}
+
+.card-body .sale {
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #dc3535;
+  border-radius: 2px;
+  font-size: 12px;
+  padding: 2px 8px;
+  line-height: 16px;
+}
+
+.star {
+  margin-right: 3px;
+}
+
+.rating-counter {
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #000000;
+  opacity: 0.7;
+  margin-left: 4px;
+}
+
+.empty-star path {
+  fill: red;
+}
+
+.preset-card {
+  margin-bottom: 44px;
+  position: relative;
+}
+
+.preset-card:hover .title {
+  text-decoration-line: underline;
+  color: #dc3535;
+}
+
+.preset-card:hover .card-body img {
+  margin-top: -14px;
+}
+
+/* TODO */
+/* .preset-card:hover .card-body img:after {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 100;
+} */
+
+.add-to-cart {
+    margin-top: 30px;
+}
+
+@media (max-width: 576px) {
+  .card-body {
+    position: relative;
+    z-index: 10;
+    width: 21.4374rem;
+  }
+
+  .preset-card {
+    margin-bottom: 0;
+  }
+}
