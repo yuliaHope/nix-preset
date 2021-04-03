@@ -3,6 +3,7 @@ import classnames from 'classnames';
 
 import { PresetCard } from '../../components/preset';
 import { Carousel } from '../../components/carousel';
+import { ReviewCard } from '../../components/review-card';
 import { ReactComponent as LeftArrow } from '../../assets/images/left-arrow.svg';
 import { ReactComponent as RightArrow } from '../../assets/images/right-arrow.svg';
 import igImg1 from '../../assets/images/ig-image-1.png';
@@ -15,12 +16,16 @@ import coverImg3 from '../../assets/images/cover-3.png';
 import coverImg4 from '../../assets/images/cover-4.png';
 import coverImg5 from '../../assets/images/cover-5.png';
 import ourLook from '../../assets/images/our-look.png';
+import review1 from '../../assets/images/review1.png';
+import review2 from '../../assets/images/review2.png';
+import review3 from '../../assets/images/review3.png';
+import review4 from '../../assets/images/review4.png';
 
 import './index.css';
 
 const igImages = [{ src: igImg1 }, { src: igImg2 }, { src: igImg3 }, { src: igImg4 }, { src: igImg1 }];
 
-const products = [
+export const products = [
   {
     title: 'MOBILE MASTER COLLECTION (Mobile & Desctop)',
     id: 1,
@@ -36,6 +41,7 @@ const products = [
     rating: 5,
     reviews: 12,
     price: 19,
+    salePrice: null,
     img: coverImg2,
   },
   {
@@ -76,6 +82,37 @@ const products = [
   },
 ];
 
+export const reviewItems = [
+  {
+    name: 'Phoebe B',
+    id: 1,
+    text: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+    image: review1,
+    rating: 5,
+  },
+  {
+    name: 'Phoebe B',
+    id: 1,
+    text: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+    image: review2,
+    rating: 5,
+  },
+  {
+    name: 'Phoebe B',
+    id: 1,
+    text: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+    image: review3,
+    rating: 5,
+  },
+  {
+    name: 'Phoebe B',
+    id: 1,
+    text: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+    image: review4,
+    rating: 5,
+  },
+];
+
 export function HomePage() {
   return (
     <>
@@ -91,11 +128,18 @@ export function HomePage() {
       </div>
       <div className="app-container tones">
         <h2 className="section-title">TOP TONES</h2>
-        <div className="row">
+        <div className="cards-grid">
           {products.map((product) => (
-            <PresetCard className="col-md-4 col-sm-12" key={product.id} {...product} />
+            <PresetCard key={product.id} addToCart {...product} />
           ))}
         </div>
+      </div>
+      <div className="app-container reviews">
+        <Carousel
+          items={[...reviewItems, ...reviewItems]}
+          settings={reviewCarouselSettings}
+          component={ReviewCarouselItem}
+        />
       </div>
       <div className="app-container our-looks">
         <h2 className="section-title">OUR LOOKS</h2>
@@ -103,12 +147,44 @@ export function HomePage() {
       </div>
       <div className="app-container follow-us">
         <h2 className="section-title">FOLLOW US</h2>
-        <p className="ig-tag">@Nix_Presets</p>
+        <a href="https://www.instagram.com/yulia_galuzo/" target="_blank" rel="noreferrer" className="ig-tag">
+          @Nix_Presets
+        </a>
         <Carousel items={igImages} settings={followUsCarouselSettings} component={FollowUsCarouselItem} />
       </div>
     </>
   );
 }
+
+function ReviewCarouselItem(props) {
+  return <ReviewCard {...props} style={{ width: 213 }} />;
+}
+
+const reviewCarouselSettings = {
+  customPaging: function (i) {
+    return <div className="nix-carousel-dot"></div>;
+  },
+  className: 'slider variable-width',
+  variableWidth: true,
+  dots: true,
+  infinite: true,
+  arrows: true,
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  initialSlide: 0,
+  nextArrow: <Arrow icon={RightArrow} />,
+  prevArrow: <Arrow icon={LeftArrow} />,
+  responsive: [
+    {
+      breakpoint: 576,
+      settings: {
+        slidesToShow: 1.3,
+        slidesToScroll: 1,
+        arrows: false,
+      },
+    },
+  ],
+};
 
 const ourLookItems = products.map((product) => ({ ...product, src: ourLook }));
 
@@ -149,10 +225,7 @@ const ourLooksCarouselSettings = {
 
 function Arrow({ icon: Icon, onClick, className }) {
   return (
-    <div
-      className={classnames('slider-arrow', className)}
-      onClick={onClick}
-    >
+    <div className={classnames('slider-arrow', className)} onClick={onClick}>
       <Icon />
     </div>
   );

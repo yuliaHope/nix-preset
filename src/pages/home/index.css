@@ -36,13 +36,20 @@
   margin-bottom: 23px;
 }
 
-.follow-us p {
+.follow-us a {
   font-size: 20px;
   line-height: 23px;
   text-align: center;
   letter-spacing: 0.23em;
   color: #3c90bf;
   margin-bottom: 70px;
+  text-decoration: none;
+  display: block;
+}
+
+.follow-us a:hover {
+  color: #3c90bf;
+  text-decoration: none;
 }
 
 .our-looks-item {
@@ -82,7 +89,8 @@
   background: #ffbb00;
 }
 
-.slider-arrow.slick-prev, .slider-arrow.slick-next {
+.slider-arrow.slick-prev,
+.slider-arrow.slick-next {
   width: 49px;
   height: 49px;
   background: #ffbb00;
@@ -92,12 +100,47 @@
   align-items: center;
 }
 
-.slider-arrow.slick-prev:hover, .slider-arrow.slick-next:hover {
+.slider-arrow.slick-prev:hover,
+.slider-arrow.slick-next:hover {
   background: #c28e00;
 }
 
 .slider-arrow:before {
   display: none;
+}
+
+.reviews .review-item {
+  width: 213px;
+}
+
+.nix-carousel-dot {
+  height: 8.36px;
+  width: 8.36px;
+  border-radius: 50%;
+  background: #000000;
+  opacity: 0.15;
+}
+
+.slick-active .nix-carousel-dot {
+  background-color: #ffbb00;
+  opacity: 1;
+}
+
+.reviews .slick-dots {
+  bottom: -55px;
+}
+
+.reviews .slick-dots li {
+  margin: 0;
+  width: 15.36px;
+}
+
+.reviews .slick-list {
+  margin: 0 94px;
+}
+
+.reviews .slick-slide {
+  margin: 0 10px;
 }
 
 @media (max-width: 576px) {
@@ -123,7 +166,7 @@
     margin-bottom: 15px;
   }
 
-  .follow-us p {
+  .follow-us a {
     font-size: 16px;
     line-height: 19px;
     margin-bottom: 27px;

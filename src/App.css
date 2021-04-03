@@ -5,13 +5,26 @@
   text-align: center;
   letter-spacing: 0.23em;
   color: #1c1c23;
-  margin-bottom: 44px;
-  margin-top: 111px;
+  margin-bottom: 2.75rem;
+  margin-top: 7rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 46px;
+  row-gap: 64px;
 }
 
 @media (max-width: 576px) {
   .section-title {
     margin-bottom: 17px;
     margin-top: 62px;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 28px;
   }
 }

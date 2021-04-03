@@ -1,0 +1,29 @@
+.review-item {
+  width: 100%;
+}
+
+.review-item .review-card {
+  background-color: white;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 10px 12px 12px 12px;
+}
+
+.review-item .review-card h6 {
+  letter-spacing: 0.06em;
+  margin-bottom: 0;
+}
+
+.review-item .review-card div {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  color: #474747;
+  margin-top: 0;
+}
+
+.review-item img {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+}

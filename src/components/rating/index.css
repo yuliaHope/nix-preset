@@ -1,0 +1,14 @@
+.rating {
+  display: flex;
+  align-items: baseline;
+}
+
+.rating-counter {
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #000000;
+    opacity: 0.7;
+    margin-left: 4px;
+  }

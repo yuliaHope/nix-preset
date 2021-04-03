@@ -6,6 +6,8 @@ import coverImg3 from '../../assets/images/cover-3.png';
 import coverImg4 from '../../assets/images/cover-4.png';
 import coverImg5 from '../../assets/images/cover-5.png';
 
+import './index.css';
+
 const products = [
   {
     title: 'MOBILE MASTER COLLECTION (Mobile & Desctop)',
@@ -21,8 +23,8 @@ const products = [
     id: 2,
     rating: 5,
     reviews: 12,
-    salePrice: null,
     price: 19,
+    salePrice: null,
     img: coverImg2,
   },
   {
@@ -63,14 +65,15 @@ const products = [
   },
 ];
 
-export function ShopPage() {
+export function SavePage() {
   return (
     <>
       <div className="app-container">
-        <h2 className="section-title">SHOP</h2>
+        <h2 className="save-title">BUY 2 GET 1 FREE!</h2>
+        <p className="save-sub-title">every 3 preset is free</p>
         <div className="cards-grid">
           {products.map((product) => (
-            <PresetCard addToCart {...product} />
+            <PresetCard  addToCart {...product} />
           ))}
         </div>
       </div>

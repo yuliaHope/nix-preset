@@ -5,6 +5,8 @@ import { Footer } from './components/footer';
 
 import { HomePage } from './pages/home';
 import { ShopPage } from './pages/shop';
+import { SavePage } from './pages/save';
+import { ProductPage } from './pages/product';
 
 import './App.css';
 
@@ -17,9 +19,10 @@ function App() {
           <Route path="/shop">
             <ShopPage />
           </Route>
-          <Route path="/save">Save</Route>
+          <Route path="/save"><SavePage /></Route>
           <Route path="/how-to-install">how-to-install</Route>
           <Route path="/cart">Cart</Route>
+          <Route path="/product/:id"><ProductPage /></Route>
           <Route exec path="/">
             <HomePage />
           </Route>

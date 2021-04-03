@@ -1,0 +1,34 @@
+.price-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.price-wrapper .price {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #000000;
+  opacity: 0.7;
+}
+
+.price-wrapper .old-price {
+  color: #dc3535;
+  text-decoration: line-through;
+  margin-right: 8px;
+  opacity: 1;
+  font-weight: normal;
+  margin-left: 16px;
+}
+
+.price-wrapper .sale {
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #dc3535;
+  border-radius: 2px;
+  font-size: 12px;
+  padding: 2px 8px;
+  line-height: 16px;
+}
