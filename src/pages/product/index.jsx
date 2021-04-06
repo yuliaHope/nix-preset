@@ -2,6 +2,7 @@ import { Button } from 'reactstrap';
 
 import { Rating } from '../../components/rating';
 import { products, reviewItems } from '../home';
+import { AddToCartButton } from '../../components/add-to-cart-cta';
 import { PresetCard } from '../../components/preset';
 import { Price } from '../../components/preset/Price';
 import { ReviewCard } from '../../components/review-card';
@@ -46,7 +47,7 @@ const questions = [
 // var COL_COUNT = 3;
 
 export function ProductPage({}) {
-  const { title, img, images, rating, reviews, salePrice, price } = product;
+  const { title, id, img, images, rating, reviews, salePrice, price } = product;
   const { dealPrice, dealSalePrice } = deals.reduce(
     (acc, cur) => {
       acc.dealPrice += cur.price;
@@ -66,7 +67,7 @@ export function ProductPage({}) {
             <Rating rating={rating} reviews={reviews} />
             <Price price={price} salePrice={salePrice} />
             <div className="buttons">
-              <Button className="btn-outline add-to-cart">Add to cart</Button>
+              <AddToCartButton className="btn-outline" id={id} />
               <Button className="add-to-cart">Buy it now</Button>
             </div>
           </div>
@@ -107,7 +108,7 @@ export function ProductPage({}) {
           <h6>Total:</h6>
           <Price showLabel={false} price={dealPrice} salePrice={dealSalePrice} />
         </div>
-        <Button className="add-to-cart">Add to cart</Button>
+        <AddToCartButton id={id} />
       </section>
       <section className="reviews-wrapper">
         <div className="info">

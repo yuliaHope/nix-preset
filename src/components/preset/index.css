@@ -73,10 +73,8 @@
     z-index: 100;
 } */
 
-.add-to-cart {
-  margin-top: 30px;
-  width: 100%;
-  height: 60px;
+.preset-card .add-to-cart {
+  height: 49px;
 }
 
 @media (max-width: 576px) {
@@ -88,9 +86,5 @@
 
   .preset-card {
     margin-bottom: 0;
-  }
-
-  .add-to-cart {
-    height: 48px;
   }
 }

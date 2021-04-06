@@ -16,6 +16,11 @@
   row-gap: 64px;
 }
 
+main {
+  margin-top: 106px;
+  min-height: calc(100% - 106px - 140px - 110px);
+}
+
 @media (max-width: 576px) {
   .section-title {
     margin-bottom: 17px;
@@ -26,5 +31,10 @@
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 28px;
+  }
+
+  main {
+    margin-top: 94px;
+    min-height: calc(100% - 94px - 100px - 60px);
   }
 }

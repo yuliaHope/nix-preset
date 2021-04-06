@@ -1,0 +1,11 @@
+.add-to-cart {
+  margin-top: 30px;
+  width: 100%;
+  height: 60px;
+}
+
+@media (max-width: 576px) {
+  .add-to-cart {
+    height: 48px;
+  }
+}
