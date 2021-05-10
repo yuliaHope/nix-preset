@@ -17,14 +17,60 @@
 }
 
 main {
-  margin-top: 106px;
+  margin-top: 103px;
   min-height: calc(100% - 106px - 140px - 110px);
+}
+
+.slider-arrow.slick-prev,
+.slider-arrow.slick-next {
+  width: 49px;
+  height: 49px;
+  background: #ffbb00;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-arrow.slick-prev:hover,
+.slider-arrow.slick-next:hover {
+  background: #c28e00;
+}
+
+.slider-arrow:before {
+  display: none;
+}
+
+.nix-carousel-dot {
+  height: 8.36px;
+  width: 8.36px;
+  border-radius: 50%;
+  background: #000000;
+  opacity: 0.15;
+}
+
+.slick-active .nix-carousel-dot {
+  background-color: #ffbb00;
+  opacity: 1;
+}
+
+.app-container .slick-dots {
+  bottom: -55px;
+}
+
+.snipcart-modal__container {
+  margin-top: 106px;
 }
 
 @media (max-width: 576px) {
   .section-title {
-    margin-bottom: 17px;
-    margin-top: 62px;
+    margin-bottom: 14px;
+    margin-top: 31px;
+    font-size: 20px;
+  }
+
+  .slick-dots {
+    bottom: -45px;
   }
 
   .cards-grid {
@@ -34,7 +80,11 @@ main {
   }
 
   main {
-    margin-top: 94px;
+    margin-top: 91px;
     min-height: calc(100% - 94px - 100px - 60px);
+  }
+
+  .snipcart-modal__container {
+    margin-top: 91px;
   }
 }

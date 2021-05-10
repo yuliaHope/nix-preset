@@ -153,6 +153,12 @@ h1.product-title {
   margin-bottom: 97px;
 }
 
+.deal-wrapper a,
+.deal-wrapper:hover a {
+  text-decoration: none;
+  color: #1c1c23;
+}
+
 .deal .card-background {
   height: calc(100% - 94px);
 }
@@ -191,10 +197,111 @@ h1.product-title {
   margin-bottom: 60px;
 }
 
+.deal-wrapper {
+  position: relative;
+}
+
+.product .deal {
+  overflow-x: auto;
+  position: relative;
+  width: 100%;
+}
+
+.product .reviews-wrapper .info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.product .review-btn {
+  border: 1px solid rgba(209, 153, 0, 0.3);
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #d19900;
+  text-transform: none;
+  background-color: transparent;
+  height: 34px;
+  padding: 0 14px;
+}
+
 @media (max-width: 576px) {
+  .product-data {
+    flex-direction: column;
+    margin-bottom: 4px;
+  }
+
+  .product-data > div,
+  .description {
+    width: 100%;
+  }
+
   .product-cover {
+    z-index: 10;
     width: 375px;
     height: 393px;
+    border-radius: 0;
+    box-shadow: 0px 16px 25px rgba(24, 28, 30, 0.2);
+  }
+
+  .product-details .data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-details .price-wrapper {
+    margin-bottom: 40px;
+  }
+
+  .product-details .buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .product-details .buttons button {
+    margin: 0;
+  }
+
+  .product-details .buttons .btn-outline {
+    margin-bottom: 10px;
+  }
+
+  .product h1.product-title {
+    margin: 36px 16px 0 16px;
+  }
+
+  .product .description {
+    padding: 16px;
+  }
+
+  .product-data .slick-slide {
+    margin: 0 4.5px;
+  }
+
+  .product-data .slick-slider {
+    max-height: 67px;
+  }
+
+  .product-data .slider-arrow.slick-prev,
+  .product-data .slider-arrow.slick-next {
+    width: 29px;
+    height: 29px;
+    z-index: 10;
+  }
+
+  .product-data .slider-arrow.slick-prev svg,
+  .product-data .slider-arrow.slick-next svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .product-data .slider-arrow.slick-prev {
+    left: -14px;
+  }
+
+  .product-data .slider-arrow.slick-next {
+    right: -10px;
   }
 
   .app-container.product {
@@ -204,19 +311,25 @@ h1.product-title {
   .product-title {
     font-size: 20px;
     line-height: 23px;
+    margin-top: 57px;
   }
 
   .product-details {
+    margin: 0;
     padding: 25px 40px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 10px;
   }
 
   .deal-wrapper {
-    margin-top: 48px;
+    margin-top: 6px;
     margin-bottom: 77px;
   }
 
   .deal-wrapper h2 {
-    margin-bottom: 37px;
+    font-size: 20px;
+    line-height: 23px;
+    margin-bottom: 17px;
   }
 
   .product-reviews {
@@ -228,5 +341,27 @@ h1.product-title {
     font-size: 20px;
     line-height: 23px;
     margin-bottom: 31px;
+  }
+
+  .product .deal-total {
+    margin-top: 42px;
+  }
+
+  .product .deal-wrapper button {
+    margin-top: 21px;
+    width: 100%;
+  }
+
+  .product button {
+    height: 60px;
+  }
+
+  .product .product-reviews {
+    margin-top: 26px;
+  }
+
+  .reviews-wrapper .info .star {
+    width: 15px;
+    height: 15px;
   }
 }

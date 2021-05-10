@@ -1,27 +1,18 @@
 import classnames from 'classnames';
 import { Button } from 'reactstrap';
 
-import useLocalStorage from 'use-local-storage';
-
 import './index.css';
 
-const LS_KEY_CART = 'cartItems';
-
-export function AddToCartButton({ className, id }) {
-  const [_, setCartItem] = useLocalStorage(LS_KEY_CART, []);
-  const handleClick = (e) => {
-    e.preventDefault();
-    const prevItems = JSON.parse(localStorage.getItem(LS_KEY_CART));
-    const newValue = [...prevItems, id];
-    setCartItem(newValue);
-    const setItemEvent = new Event('setLSItemEvent');
-    setItemEvent.key = LS_KEY_CART;
-    setItemEvent.value = newValue;
-    window.dispatchEvent(setItemEvent);
-  };
-
+export function AddToCartButton({ className, id, price, url, img, title }) {
   return (
-    <Button className={classnames('add-to-cart', className)} onClick={handleClick}>
+    <Button
+      className={classnames('add-to-cart snipcart-add-item', className)}
+      data-item-id={id}
+      data-item-price={price}
+      data-item-url={url}
+      data-item-image={`${process.env.REACT_APP_API}${img}`}
+      data-item-name={title}
+    >
       Add to cart
     </Button>
   );

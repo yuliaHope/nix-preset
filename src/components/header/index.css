@@ -52,6 +52,7 @@ header {
   border-bottom: 1px solid #dc3535;
   text-decoration: none;
   color: #1c1c23;
+  padding-bottom: 2px;
 }
 
 .app-navigation a:hover {
@@ -75,6 +76,12 @@ header {
 
 .search-shop {
   position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.snipcart-checkout {
+  cursor: pointer;
 }
 
 .cart-badge {
@@ -92,12 +99,47 @@ header {
   text-align: center;
 }
 
+.navbar-light .navbar-toggler {
+  border: none;
+}
+
+.mobile-menu {
+  position: fixed;
+  left: -2000px;
+  top: 90px;
+  height: 100%;
+  background-color: white;
+  width: 80%;
+  transition: left 1s ease-in-out;
+}
+
+.mobile-menu.open {
+  left: 0;
+}
+
+.mobile-menu .nav-item {
+  padding: 15px;
+  border-bottom: 1px solid grey;
+}
+
+.desctop-menu.navbar-nav {
+  flex-direction: unset;
+}
+
+.desctop-menu .nav-item {
+  margin-right: 37px;
+}
+
+.desctop-menu li:last-child {
+  margin-right: 0;
+}
+
 @media (max-width: 576px) {
   .header-navigation {
     height: 60px;
   }
 
-  .app-navigation a {
+  .desctop-menu .nav-item {
     margin-right: 28px;
   }
 }

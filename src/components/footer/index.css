@@ -51,8 +51,15 @@ footer {
     height: 60px;
   }
 
-  .ig-link, .payment-methods {
+  .ig-link {
     display: none;
+  }
+
+  .payment-methods {
+    background: #F1F1F1;
+    padding: 13px 16px;
+    display: flex;
+    justify-content: center;
   }
 
   .footer-navigation {

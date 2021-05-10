@@ -10,6 +10,9 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <link rel="preconnect" href="https://app.snipcart.com">
+    <link rel="preconnect" href="https://cdn.snipcart.com">
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.1.1/default/snipcart.css" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -28,6 +31,7 @@
     <title>React App</title>
   </head>
   <body>
+    
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -40,5 +44,7 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script async src="https://cdn.snipcart.com/themes/v3.1.1/default/snipcart.js"></script>
+    <div id="snipcart" data-config-add-product-behavior="none" data-api-key="MDg2MTVmNTUtOTI4OS00MjY2LTliMzAtM2NhZmJmYjIyODJhNjM3NTMzMzg4OTMxNzM3Nzg5" hidden></div>
   </body>
 </html>

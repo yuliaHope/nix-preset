@@ -1,4 +1,5 @@
 import Slider from 'react-slick';
+import classnames from 'classnames';
 
 export function Carousel({ items, component: Component, settings }) {
   return (
@@ -7,5 +8,13 @@ export function Carousel({ items, component: Component, settings }) {
         <Component key={index} {...item} />
       ))}
     </Slider>
+  );
+}
+
+export function Arrow({ icon: Icon, onClick, className }) {
+  return (
+    <div className={classnames('slider-arrow', className)} onClick={onClick}>
+      <Icon />
+    </div>
   );
 }

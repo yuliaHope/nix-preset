@@ -38,11 +38,21 @@ body .App {
   font-family: 'Roboto', 'Rounded Mplus 1c', sans-serif;
 }
 
-html,
-body,
-#root,
-.App {
-  height: 100%;
+html {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+body, #app {
+  width: 100%;
+  height: auto;
+}
+
+#root {
   background-color: #e5e5e5;
 }
 
@@ -50,6 +60,7 @@ body,
   max-width: 1144px;
   padding: 0.8rem;
   margin: auto;
+  width: 100%;
 }
 
 .App .btn {

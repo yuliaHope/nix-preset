@@ -40,10 +40,6 @@
   margin-right: 3px;
 }
 
-.empty-star path {
-  fill: red;
-}
-
 .preset-card {
   margin-bottom: 44px;
   position: relative;
