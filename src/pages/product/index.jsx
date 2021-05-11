@@ -45,12 +45,12 @@ export function ProductPage() {
       .then((data) => {
         setProduct(data);
       });
-    fetch(`http://localhost:1337/all-presets?id_nin=${id}&_limit=3`)
+    fetch(`${process.env.REACT_APP_API}/all-presets?id_nin=${id}&_limit=3`)
       .then((response) => response.json())
       .then((data) => {
         setDeals(data);
         const query = data.reduce((acc, cur) => `${acc}&id_nin=${cur.id}`, '');
-        fetch(`http://localhost:1337/all-presets?id_nin=${id}${query}&_limit=3`)
+        fetch(`${process.env.REACT_APP_API}/all-presets?id_nin=${id}${query}&_limit=3`)
           .then((response) => response.json())
           .then((data) => {
             setRelated(data);

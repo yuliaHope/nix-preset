@@ -4,7 +4,7 @@ import classnames from 'classnames';
 export function Carousel({ items, component: Component, settings }) {
   return (
     <Slider {...settings}>
-      {items.map((item, index) => (
+      {!!items.length && items.map((item, index) => (
         <Component key={index} {...item} />
       ))}
     </Slider>

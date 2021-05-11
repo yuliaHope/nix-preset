@@ -13,6 +13,7 @@ export function PresetCard({
   reviews = [],
   price,
   salePrice,
+  fileId,
   img = {},
   className,
   addToCart,
@@ -35,6 +36,7 @@ export function PresetCard({
               title={title}
               url={`/product/${id}`}
               img={img.url}
+              fileId={fileId}
             />
           )}
         </div>

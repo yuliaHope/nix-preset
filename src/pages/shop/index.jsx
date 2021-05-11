@@ -11,16 +11,18 @@ export function ShopPage() {
         setProducts(data);
       });
   }, []);
-  
+
   return (
     <>
       <div className="app-container">
         <h2 className="section-title">SHOP</h2>
-        <div className="cards-grid">
-          {products.map((product) => (
-            <PresetCard addToCart {...product} />
-          ))}
-        </div>
+        {!!products.length && (
+          <div className="cards-grid">
+            {products.map((product) => (
+              <PresetCard addToCart {...product} />
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

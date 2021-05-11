@@ -19,11 +19,13 @@ export function SavePage() {
       <div className="app-container">
         <h2 className="save-title">BUY 2 GET 1 FREE!</h2>
         <p className="save-sub-title">every 3 preset is free</p>
-        <div className="cards-grid">
-          {products.map((product) => (
-            <PresetCard addToCart {...product} />
-          ))}
-        </div>
+        {!!products.length && (
+          <div className="cards-grid">
+            {products.map((product) => (
+              <PresetCard addToCart {...product} />
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

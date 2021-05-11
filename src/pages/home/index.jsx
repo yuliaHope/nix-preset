@@ -46,14 +46,16 @@ export function HomePage() {
           </Link>
         </div>
       </div>
-      <div className="app-container tones">
-        <h2 className="section-title">TOP{isMobile && ' MOBILE'} TONES</h2>
-        <div className="cards-grid">
-          {products.map((product) => (
-            <PresetCard key={product.id} addToCart {...product} />
-          ))}
+      {!!products.length && (
+        <div className="app-container tones">
+          <h2 className="section-title">TOP{isMobile && ' MOBILE'} TONES</h2>
+          <div className="cards-grid">
+            {products.map((product) => (
+              <PresetCard key={product.id} addToCart {...product} />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
       <div className="app-container reviews">
         <Carousel items={reviews} settings={reviewCarouselSettings} component={ReviewCarouselItem} />
       </div>
