@@ -173,7 +173,7 @@ const QA = ({ question, answer }) => {
   );
 };
 
-const ProductDetailsCard = ({ rating, price, reviews, salePrice, id, children, title, img = {} }) => {
+const ProductDetailsCard = ({ rating, price, reviews, salePrice, id, children, title, img = {}, fileId }) => {
   return (
     <div className="product-details">
       {children}
@@ -189,8 +189,21 @@ const ProductDetailsCard = ({ rating, price, reviews, salePrice, id, children, t
             title={title}
             url={`/product/${id}`}
             img={img.url}
+            fileId={fileId}
           />
-          <Button className="add-to-cart">Buy it now</Button>
+          <div className="snipcart-checkout">
+            <Button
+              className="add-to-cart"
+              data-item-id={id}
+              data-item-price={salePrice || price}
+              data-item-url={`/product/${id}`}
+              data-item-image={`${process.env.REACT_APP_API}${img.url}`}
+              data-item-name={title}
+              data-item-file-guid={fileId}
+            >
+              Buy it now
+            </Button>
+          </div>
         </div>
       </div>
     </div>

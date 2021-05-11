@@ -14,9 +14,11 @@ export function PresetCard({
   price,
   salePrice,
   fileId,
+  buyPrice,
   img = {},
   className,
   addToCart,
+  onBuyClick,
   showRating = true,
   ...props
 }) {
@@ -31,8 +33,9 @@ export function PresetCard({
           <Price price={price} salePrice={salePrice} />
           {!!addToCart && (
             <AddToCartButton
+              onClick={onBuyClick}
               id={id}
-              price={salePrice || price}
+              price={buyPrice || salePrice || price}
               title={title}
               url={`/product/${id}`}
               img={img.url}

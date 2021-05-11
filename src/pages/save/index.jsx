@@ -6,6 +6,7 @@ import './index.css';
 
 export function SavePage() {
   const [products, setProducts] = useState([]);
+  const [added, increase] = useState(0);
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API}/all-presets`)
       .then((response) => response.json())
@@ -22,7 +23,7 @@ export function SavePage() {
         {!!products.length && (
           <div className="cards-grid">
             {products.map((product) => (
-              <PresetCard addToCart {...product} />
+              <PresetCard addToCart {...product} buyPrice={(added % 3) === 2 ? 0 : product.salePrice || product.price} onBuyClick={() => increase(added + 1)} />
             ))}
           </div>
         )}

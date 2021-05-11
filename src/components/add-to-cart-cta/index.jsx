@@ -3,9 +3,10 @@ import { Button } from 'reactstrap';
 
 import './index.css';
 
-export function AddToCartButton({ className, id, price, url, img, title, fileId }) {
+export function AddToCartButton({ className, id, price, url, img, title, fileId, onClick }) {
   return (
     <Button
+      onClick={onClick}
       className={classnames('add-to-cart snipcart-add-item', className)}
       data-item-id={id}
       data-item-price={price}
