@@ -22,7 +22,7 @@ export function SavePage() {
         {!!products.length && (
           <div className="cards-grid">
             {products.map((product) => (
-              <PresetCard addToCart {...product} category="save" />
+              <PresetCard key={product.id} addToCart {...product} category="save" />
             ))}
           </div>
         )}

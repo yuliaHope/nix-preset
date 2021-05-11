@@ -40,7 +40,7 @@ export function Header() {
             <Navigation className="desctop-menu" />
           )}
           <div className="search-shop">
-            <Search className="search-icon" />
+            {/* <Search className="search-icon" /> */}
             <div className="snipcart-checkout">
               <Bag className="bag-icon" />
               {/* <div id="my-store-45132370" data-layout="MEDIUM_ICON_COUNTER" className="ec-cart-widget"></div> */}

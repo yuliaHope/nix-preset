@@ -19,7 +19,7 @@ export function ShopPage() {
         {!!products.length && (
           <div className="cards-grid">
             {products.map((product) => (
-              <PresetCard addToCart {...product} />
+              <PresetCard key={product.id} addToCart {...product} />
             ))}
           </div>
         )}

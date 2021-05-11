@@ -1,0 +1,40 @@
+.instructions .step-header {
+  font-size: 20px;
+  line-height: 35px;
+  letter-spacing: 0.16em;
+}
+
+.instructions .step-header .step-number {
+  color: #e8af05;
+}
+
+.instructions p {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 28px;
+  color: #1c1c23;
+}
+
+.instructions .hti-sub-title {
+  font-size: 28px;
+  line-height: 65px;
+  font-weight: 300;
+
+  text-align: center;
+  letter-spacing: 0.23em;
+
+  color: #565656;
+  margin-bottom: 51px;
+}
+
+.instructions .section-title {
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 65px;
+
+  text-align: center;
+  letter-spacing: 0.23em;
+
+  color: #1c1c23;
+  margin-bottom: 20px;
+}

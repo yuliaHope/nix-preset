@@ -8,9 +8,9 @@ import { HomePage } from './pages/home';
 import { ShopPage } from './pages/shop';
 import { SavePage } from './pages/save';
 import { ProductPage } from './pages/product';
+import { InstructionsPage } from './pages/instructions';
 
 import './App.css';
-
 
 function App() {
   const isMobile = window.innerWidth < 576;
@@ -26,7 +26,9 @@ function App() {
             <Route path="/save">
               <SavePage />
             </Route>
-            <Route path="/how-to-install">how-to-install</Route>
+            <Route path="/how-to-install">
+              <InstructionsPage />
+            </Route>
             <Route path="/product/:id">
               <ProductPage />
             </Route>
