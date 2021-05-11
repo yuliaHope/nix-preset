@@ -56,7 +56,7 @@ export function ProductPage() {
             setRelated(data);
           });
       });
-  }, []);
+  }, [id]);
 
   const { title, img = {}, examples = [], rating, reviews = [] } = product;
   const { dealPrice, dealSalePrice } = deals.length
