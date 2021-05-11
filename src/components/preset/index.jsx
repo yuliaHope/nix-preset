@@ -37,7 +37,7 @@ export function PresetCard({
               id={id}
               price={buyPrice || salePrice || price}
               title={title}
-              url={`/product/${id}`}
+              url={`${process.env.REACT_APP_API}/snipcartParser`}
               img={img.url}
               fileId={fileId}
             />

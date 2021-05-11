@@ -130,7 +130,7 @@ export function ProductPage() {
             id={`${id}-deal`}
             price={dealSalePrice || dealPrice}
             title={`${title} DEAL`}
-            url={`/product/${id}#deal`}
+            url={`${process.env.REACT_APP_API}/snipcartParser`}
             img={img.url}
           />
         </section>
@@ -187,7 +187,7 @@ const ProductDetailsCard = ({ rating, price, reviews, salePrice, id, children, t
             id={id}
             price={salePrice || price}
             title={title}
-            url={`/product/${id}`}
+            url={`${process.env.REACT_APP_API}/snipcartParser`}
             img={img.url}
             fileId={fileId}
           />
@@ -196,7 +196,7 @@ const ProductDetailsCard = ({ rating, price, reviews, salePrice, id, children, t
               className="add-to-cart"
               data-item-id={id}
               data-item-price={salePrice || price}
-              data-item-url={`/product/${id}`}
+              data-item-url={`${process.env.REACT_APP_API}/snipcartParser`}
               data-item-image={`${process.env.REACT_APP_API}${img.url}`}
               data-item-name={title}
               data-item-file-guid={fileId}
