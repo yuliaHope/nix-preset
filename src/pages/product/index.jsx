@@ -1,4 +1,4 @@
-import { Button } from 'reactstrap';
+import { Button, Collapse, Form, FormGroup, Input, Label, FormText, Alert } from 'reactstrap';
 import { useContext, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -34,10 +34,25 @@ const questions = [
 
 export function ProductPage() {
   const isMobile = useContext(IsMobileContext);
+  const [collapse, setCollapse] = useState(false);
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [related, setRelated] = useState([]);
   const [deal, setDeal] = useState({});
+  const [formData, setFormData] = useState({});
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleFormChange = (event) => {
+    const { value, name } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const submitFeedback = () => {
+    setFormData({});
+    setCollapse(!collapse);
+    setShowAlert(true);
+    setTimeout(() => setShowAlert(false), 5000);
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -128,8 +143,56 @@ export function ProductPage() {
         <section className="reviews-wrapper">
           <div className="info">
             <Rating text="Reviews" rating={rating} reviews={reviews} />
-            <Button className="review-btn">Write a review</Button>
+            <Button className="review-btn" onClick={() => setCollapse(!collapse)}>
+              Write a review
+            </Button>
           </div>
+          {showAlert && (
+            <Alert color="success">Your feedback has been successfully submitted and sent for moderation!</Alert>
+          )}
+          <Collapse isOpen={collapse}>
+            <Form>
+              <FormGroup>
+                <Label for="name">Name</Label>
+                <Input
+                  onChange={handleFormChange}
+                  value={formData.name}
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Enter your name here..."
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="rating">Rating</Label>
+                <Input
+                  onChange={handleFormChange}
+                  value={formData.rating}
+                  type="number"
+                  name="rating"
+                  id="rating"
+                  placeholder="Number from 1 to 5"
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="feedback">Feedback</Label>
+                <Input
+                  onChange={handleFormChange}
+                  value={formData.feedback}
+                  type="textarea"
+                  name="feedback"
+                  id="feedback"
+                  placeholder="Enter your feedback here..."
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="avatar">Your avatar</Label>
+                <Input onChange={handleFormChange} value={formData.avatar} type="file" name="avatar" id="avatar" />
+                <FormText color="muted">This image will be used as a cover image for your feedback.</FormText>
+              </FormGroup>
+              <Button onClick={submitFeedback}>Submit</Button>
+            </Form>
+          </Collapse>
           {isMobile && <hr />}
           <div className="product-reviews">
             {reviews.map((review, index) => (
