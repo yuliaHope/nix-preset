@@ -3,7 +3,7 @@ import { Button } from 'reactstrap';
 
 import './index.css';
 
-export function AddToCartButton({ className, id, price, url, img, title, fileId, onClick }) {
+export function AddToCartButton({ className, id, price, url, img, title, fileId, onClick, category, ...props }) {
   return (
     <Button
       onClick={onClick}
@@ -14,6 +14,8 @@ export function AddToCartButton({ className, id, price, url, img, title, fileId,
       data-item-image={`${process.env.REACT_APP_API}${img}`}
       data-item-name={title}
       data-item-file-guid={fileId}
+      data-item-categories={category}
+      {...props}
     >
       Add to cart
     </Button>

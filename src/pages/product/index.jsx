@@ -37,38 +37,25 @@ export function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [related, setRelated] = useState([]);
-  const [deals, setDeals] = useState([]);
+  const [deal, setDeal] = useState({});
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API}/all-presets/${id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setProduct(data);
-      });
-    fetch(`${process.env.REACT_APP_API}/all-presets?id_nin=${id}&_limit=3`)
-      .then((response) => response.json())
-      .then((data) => {
-        setDeals(data);
-        const query = data.reduce((acc, cur) => `${acc}&id_nin=${cur.id}`, '');
-        fetch(`${process.env.REACT_APP_API}/all-presets?id_nin=${id}${query}&_limit=3`)
-          .then((response) => response.json())
-          .then((data) => {
-            setRelated(data);
-          });
-      });
+    async function fetchData() {
+      const productData = await (await fetch(`${process.env.REACT_APP_API}/all-presets/${id}`)).json();
+      setProduct(productData);
+      const dealData = await (await fetch(`${process.env.REACT_APP_API}/deals/${productData.dealId.id}`)).json();
+      setDeal(dealData);
+      const query = dealData.presets.reduce((acc, cur) => `${acc}&id_nin=${cur.id}`, '');
+      const relatedData = await (
+        await fetch(`${process.env.REACT_APP_API}/all-presets?id_nin=${id}${query}&_limit=3`)
+      ).json();
+      setRelated(relatedData);
+    }
+
+    fetchData();
   }, [id]);
 
   const { title, img = {}, examples = [], rating, reviews = [] } = product;
-  const { dealPrice, dealSalePrice } = deals.length
-    ? [product, ...deals].reduce(
-        (acc, cur) => {
-          acc.dealPrice += cur.price;
-          acc.dealSalePrice += cur.salePrice || 0;
-          return acc;
-        },
-        { dealPrice: 0, dealSalePrice: 0 }
-      )
-    : {};
 
   return (
     <div className="app-container product">
@@ -90,8 +77,8 @@ export function ProductPage() {
       <div className="row">
         {!isMobile && (
           <div className="product-examples">
-            {examples.map(({ url }) => (
-              <img className="" src={`${process.env.REACT_APP_API}${url}`} alt="example" />
+            {examples.map(({ url }, index) => (
+              <img className="" key={index} src={`${process.env.REACT_APP_API}${url}`} alt="example" />
             ))}
           </div>
         )}
@@ -107,31 +94,33 @@ export function ProductPage() {
             <li>Email Support </li>
           </ul>
           <p className="product-title">FREQUENTLY ASKED QUESTIONS:</p>
-          {questions.map((question) => (
-            <QA {...question} />
+          {questions.map((question, index) => (
+            <QA {...question} key={index} />
           ))}
         </section>
       </div>
-      {!!deals.length && (
+      {!!deal.presets && !!deal.presets.length && (
         <section className="deal-wrapper">
           <h2>
             <a href="#deal">buy 2 get 2 free!</a>
           </h2>
           <div className="deal">
-            {[product, ...deals].map((product) => (
-              <PresetCard showRating={false} {...product} />
+            {deal.presets.map((product) => (
+              <PresetCard key={product.id} showRating={false} {...product} />
             ))}
           </div>
           <div className="deal-total">
             <h6>Total:</h6>
-            <Price showLabel={false} price={dealPrice} salePrice={dealSalePrice} />
+            <Price showLabel={false} price={deal.price} salePrice={deal.salePrice} />
           </div>
           <AddToCartButton
-            id={`${id}-deal`}
-            price={dealSalePrice || dealPrice}
+            id={`${deal.id}-deal`}
+            price={deal.price}
             title={`${title} DEAL`}
             url={`${process.env.REACT_APP_API}/snipcartParser`}
             img={img.url}
+            category="deal"
+            data-item-price-deal={deal.salePrice}
           />
         </section>
       )}
@@ -143,8 +132,8 @@ export function ProductPage() {
           </div>
           {isMobile && <hr />}
           <div className="product-reviews">
-            {reviews.map((review) => (
-              <ReviewCard {...review} />
+            {reviews.map((review, index) => (
+              <ReviewCard key={index} {...review} />
             ))}
           </div>
         </section>
@@ -155,7 +144,7 @@ export function ProductPage() {
           <h3>YOU MAY ALSO LIKE</h3>
           <div className="cards-grid">
             {related.map((product) => (
-              <PresetCard {...product} />
+              <PresetCard key={product.id} {...product} />
             ))}
           </div>
         </section>
@@ -191,19 +180,18 @@ const ProductDetailsCard = ({ rating, price, reviews, salePrice, id, children, t
             img={img.url}
             fileId={fileId}
           />
-          <div className="snipcart-checkout">
-            <Button
-              className="add-to-cart"
-              data-item-id={id}
-              data-item-price={salePrice || price}
-              data-item-url={`${process.env.REACT_APP_API}/snipcartParser`}
-              data-item-image={`${process.env.REACT_APP_API}${img.url}`}
-              data-item-name={title}
-              data-item-file-guid={fileId}
-            >
-              Buy it now
-            </Button>
-          </div>
+          <Button
+            className="add-to-cart snipcart-add-item"
+            data-item-id={id}
+            data-item-price={salePrice || price}
+            data-item-url={`${process.env.REACT_APP_API}/snipcartParser`}
+            data-item-image={`${process.env.REACT_APP_API}${img.url}`}
+            data-item-name={title}
+            data-item-file-guid={fileId}
+            onClick={() => document.location.assign('#/cart')}
+          >
+            Buy it now
+          </Button>
         </div>
       </div>
     </div>

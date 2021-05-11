@@ -59,7 +59,9 @@ main {
 }
 
 .snipcart-modal__container {
-  margin-top: 106px;
+  margin-top: 90px;
+  height: calc(100% - 90px);
+  min-height: calc(100% - 90px);
 }
 
 @media (max-width: 576px) {
@@ -82,9 +84,5 @@ main {
   main {
     margin-top: 91px;
     min-height: calc(100% - 94px - 100px - 60px);
-  }
-
-  .snipcart-modal__container {
-    margin-top: 91px;
   }
 }
